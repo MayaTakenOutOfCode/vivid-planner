@@ -8,8 +8,15 @@
     --secondary-color: #F7C8C8;
     --accent-color: #FFE699;
     --text-color: #2E2E2E;
+    
+    font-family: 'Inter', sans-serif;
+    --background-color-dark: #232323;
+    --primary-color-dark: #4F8A8B;
+    --secondary-color-dark: #FF6F61;
+    --accent-color-dark: #FFD700;
+    --text-color-dark: #FAFAF8;
     font-size: 250%;
-    font-family: 'Inter' sans-serif;
+    
 }
 
 :root{
@@ -63,8 +70,8 @@
 }
 
 .btn {
-    background: var(--color-primary);
-    color: var(--color-text);
+    background: var(--primary-color);
+    color: var(--text-color);
     padding: 0.6rem 1rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-soft);
@@ -74,7 +81,7 @@
 }
 
 .btn:hover {
-    background: var(--color-secondary);
+    background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }
@@ -124,4 +131,13 @@
 
 .m-4 {
     margin: 1rem;
+}
+
+/* Add dark theme class */
+.dark-theme {
+    --background-color: var(--background-color-dark);
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --text-color: var(--text-color-dark);
 }
