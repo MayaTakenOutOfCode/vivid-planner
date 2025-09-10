@@ -14,7 +14,7 @@ function App() {
   }, [dark])
 
   return (
-    <div id='root'>
+    <>
       <button
         className='btn m-2'
         onClick={() => setDark(d => !d)}
@@ -25,7 +25,7 @@ function App() {
       <footer>
         <p className='text-sm'>To jest wersja deweloperska naszej aplikacji!</p>
       </footer>
-    </div>
+    </>
   )
 }
 
