@@ -8,11 +8,15 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 ## 🌈 Global Styles
 ```css
 :root {
+  margin: 0;
+  padding: 0;
   --background-color: #FAFAF8;
   --primary-color: #A3D9A5;
   --secondary-color: #F7C8C8;
   --accent-color: #FFE699;
   --text-color: #2E2E2E;
+  font-size: 250%;
+  font-family: 'Inter' sans-serif;
 }
 ```
 
@@ -26,7 +30,7 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 ### Font Sizes
 | Class       | Size   | Example Use           |
 |-------------|--------|-----------------------|
-| `.text-sm`  | 14px   | small labels, captions |
+| `.text-sm`  | 14px   | small labels, captions, footers |
 | `.text-md`  | 16px   | body text (default)   |
 | `.text-lg`  | 18px   | slightly larger text  |
 | `.text-xl`  | 20px   | subheadings           |
