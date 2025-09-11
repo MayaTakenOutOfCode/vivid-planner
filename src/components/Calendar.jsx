@@ -9,7 +9,7 @@ const Calendar = ({ events = [] }) => {
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
 
-    // Build days array with nulls for empty slots
+    
     let days = [];
     for (let i = 0; i < firstDay; i++) {
         days.push(null);
@@ -17,12 +17,12 @@ const Calendar = ({ events = [] }) => {
     for (let j = 1; j <= daysInMonth; j++) {
         days.push(j);
     }
-    // Fill the last week with nulls if needed
+    
     while (days.length % 7 !== 0) {
         days.push(null);
     }
 
-    // Split days into weeks
+    
     const weeks = [];
     for (let i = 0; i < days.length; i += 7) {
         weeks.push(days.slice(i, i + 7));
