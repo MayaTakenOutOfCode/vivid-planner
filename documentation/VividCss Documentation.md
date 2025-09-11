@@ -1,4 +1,4 @@
-# 🎨 Cute CSS Library – Documentation
+# 🎨 VividCss – Documentation
 
 A simple and cute CSS utility library for **colors, typography, components, and layouts**.  
 Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color palette.  
@@ -16,27 +16,39 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
   --accent-color: #FFE699;
   --text-color: #2E2E2E;
   font-size: 250%;
-  font-family: 'Inter' sans-serif;
+  font-family: 'Inter', sans-serif;
+  /* Dark theme variables */
+  --background-color-dark: #232323;
+  --primary-color-dark: #4F8A8B;
+  --secondary-color-dark: #FF6F61;
+  --accent-color-dark: #FFD700;
+  --text-color-dark: #FAFAF8;
+}
+:root {
+  background-color: var(--background-color);
+  text-align: center;
+  color: var(--text-color);
 }
 ```
 
 - **Font:** Inter (Google Fonts)  
 - **Palette:** soft green, pink, and yellow accents on a clean background  
+- **Dark theme:** `.dark-theme` class switches to dark palette
 
 ---
 
 ## ✍️ Typography
 
 ### Font Sizes
-| Class       | Size   | Example Use           |
-|-------------|--------|-----------------------|
-| `.text-sm`  | 14px   | small labels, captions, footers |
-| `.text-md`  | 16px   | body text (default)   |
-| `.text-lg`  | 18px   | slightly larger text  |
-| `.text-xl`  | 20px   | subheadings           |
-| `.text-2xl` | 24px   | section headings      |
-| `.text-3xl` | 30px   | titles                |
-| `.text-4xl` | 36px   | page headers          |
+| Class       | Size     | Example Use           |
+|-------------|----------|-----------------------|
+| `.text-sm`  | 0.875rem | small labels, captions, footers |
+| `.text-md`  | 1rem     | body text (default)   |
+| `.text-lg`  | 1.125rem | slightly larger text  |
+| `.text-xl`  | 1.25rem  | subheadings           |
+| `.text-2xl` | 1.5rem   | section headings      |
+| `.text-3xl` | 1.875rem | titles                |
+| `.text-4xl` | 2.25rem  | page headers          |
 
 ### Line Height
 | Class          | Value | Use Case              |
@@ -56,8 +68,21 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 
 ### Button
 ```css
-.btn { ... }
-.btn:hover { ... }
+.btn {
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  transition: 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
 ```
 - Rounded, padded, soft shadow  
 - **Primary color (green)** by default  
@@ -65,7 +90,12 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 
 ### Card
 ```css
-.card { ... }
+.card {
+  background: var(--color-surface);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+}
 ```
 - Rounded container with padding  
 - Subtle shadow for content grouping  
@@ -77,22 +107,62 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 ### Flexbox
 | Class          | Description                          |
 |----------------|--------------------------------------|
-| `.flex`        | `display: flex`                     |
-| `.flex-center` | Center horizontally & vertically    |
-| `.flex-col`    | Column layout                       |
+| `.flex`        | `display: flex`                      |
+| `.flex-center` | Center horizontally & vertically     |
+| `.flex-col`    | Column layout                        |
 
 ### Grid
 | Class          | Description                          |
 |----------------|--------------------------------------|
-| `.grid`        | `display: grid`                     |
-| `.grid-center` | Center both axes with `place-items` |
+| `.grid`        | `display: grid`                      |
+| `.grid-center` | Center both axes with `place-items`  |
+| `.grid-cols-7` | 7 columns (repeat)                   |
 
 ### Spacing
 | Class  | Value   |
 |--------|---------|
+| `.p-1` | 0.25rem |
 | `.p-2` | 0.5rem  |
 | `.p-4` | 1rem    |
 | `.m-2` | 0.5rem  |
 | `.m-4` | 1rem    |
+| `.mt-1`| 0.25rem (margin-top) |
+
+### Gap
+| Class   | Value   |
+|---------|---------|
+| `.gap-2`| 0.5rem  |
 
 ---
+
+## 🎨 Color Utilities
+
+| Class         | Description                       |
+|---------------|-----------------------------------|
+| `.bg-blue-200`| Background: primary color         |
+| `.text-white` | Text: main text color             |
+
+---
+
+## 🖼️ Miscellaneous
+
+| Class      | Description                      |
+|------------|----------------------------------|
+| `.border`  | 1px solid border (secondary color)|
+| `.rounded` | 0.25rem border-radius             |
+| `.h-20`    | Height: 20px                      |
+
+---
+
+## 🌚 Dark Theme
+
+Add `.dark-theme` to your root/container to enable dark colors:
+```css
+.dark-theme {
+  --background-color: var(--background-color-dark);
+  --primary-color: var(--primary-color-dark);
+  --secondary-color: var(--secondary-color-dark);
+  --accent-color: var(--accent-color-dark);
+  --text-color: var(--text-color-dark);
+}
+```
