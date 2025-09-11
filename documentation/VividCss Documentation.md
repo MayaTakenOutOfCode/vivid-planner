@@ -15,7 +15,7 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
   --secondary-color: #F7C8C8;
   --accent-color: #FFE699;
   --text-color: #2E2E2E;
-  font-size: 250%;
+  font-size: 200%;
   font-family: 'Inter', sans-serif;
   /* Dark theme variables */
   --background-color-dark: #232323;
