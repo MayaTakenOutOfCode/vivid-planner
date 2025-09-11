@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/allStyles.css";
+import "../styles/allStyles.css";
 
 const Calendar = ({ events = [] }) => {
     const today = new Date();
@@ -9,12 +9,23 @@ const Calendar = ({ events = [] }) => {
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
 
+    // Build days array with nulls for empty slots
     let days = [];
     for (let i = 0; i < firstDay; i++) {
         days.push(null);
     }
     for (let j = 1; j <= daysInMonth; j++) {
         days.push(j);
+    }
+    // Fill the last week with nulls if needed
+    while (days.length % 7 !== 0) {
+        days.push(null);
+    }
+
+    // Split days into weeks
+    const weeks = [];
+    for (let i = 0; i < days.length; i += 7) {
+        weeks.push(days.slice(i, i + 7));
     }
 
     const handlePrev = () => {
@@ -39,35 +50,41 @@ const Calendar = ({ events = [] }) => {
 
     return (
         <>
-            <div className="flex flex-center gap-2 mb-4">
-                <button className="btn" onClick={handlePrev}>Prev</button>
-                <h2 className="text-2xl">{monthName} {currentYear}</h2>
-                <button className="btn" onClick={handleNext}>Next</button>
+            <div className="flex flex-center gap-2 mb-4 p-3">
+                <button className="btn text-2xs" onClick={handlePrev}>Prev</button>
+                <h2 className="text-lg font-wg-bold flex flex-center" style={{margin: 0}}>
+                    {monthName} {currentYear}
+                </h2>
+                <button className="btn text-2xs" onClick={handleNext}>Next</button>
             </div>
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-2 mb-2">
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => (
-                    <div key={d} className="font-wg-bold">{d}</div>
-                ))}
-                {days.map((day, index) => (
-                    <div key={index} className="border p-2 h-20">
-                        {day && <span>{day}</span>}
-                        {day && events
-                            .filter(e => {
-                                const eventDate = new Date(e.date);
-                                return (
-                                    eventDate.getDate() === day &&
-                                    eventDate.getMonth() === currentMonth &&
-                                    eventDate.getFullYear() === currentYear
-                                );
-                            })
-                            .map(e => (
-                                <div key={e.id} className="text-sm bg-blue-200 rounded mt-1 p-1">
-                                    {e.title}
-                                </div>
-                            ))}
-                    </div>
+                    <div key={d} className="font-wg-bold border rouded p-2 h-20 bg-blue-200">{d}</div>
                 ))}
             </div>
+            {weeks.map((week, wIdx) => (
+                <div key={wIdx} className="grid grid-cols-7 gap-2 mb-1">
+                    {week.map((day, dIdx) => (
+                        <div key={dIdx} className="border p-2 rounded flex flex-center">
+                            {day && <span className="text-xs">{day}</span>}
+                            {day && events
+                                .filter(e => {
+                                    const eventDate = new Date(e.date);
+                                    return (
+                                        eventDate.getDate() === day &&
+                                        eventDate.getMonth() === currentMonth &&
+                                        eventDate.getFullYear() === currentYear
+                                    );
+                                })
+                                .map(e => (
+                                    <div key={e.id} className="text-xs bg-blue-200 rounded mt-1 p-1">
+                                        {e.title}
+                                    </div>
+                                ))}
+                        </div>
+                    ))}
+                </div>
+            ))}
         </>
     );
 }

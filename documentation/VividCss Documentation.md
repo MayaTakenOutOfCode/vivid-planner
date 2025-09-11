@@ -42,6 +42,9 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 ### Font Sizes
 | Class       | Size     | Example Use           |
 |-------------|----------|-----------------------|
+| `.text-3xs`  | 0.5rem | small labels, captions, footers |
+| `.text-2xs`  | 0.625rem | small labels, captions, footers |
+| `.text-xs`  | 0.75rem | small labels, captions, footers |
 | `.text-sm`  | 0.875rem | small labels, captions, footers |
 | `.text-md`  | 1rem     | body text (default)   |
 | `.text-lg`  | 1.125rem | slightly larger text  |

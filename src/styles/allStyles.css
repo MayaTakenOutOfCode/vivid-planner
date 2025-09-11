@@ -15,7 +15,7 @@
     --secondary-color-dark: #FF6F61;
     --accent-color-dark: #FFD700;
     --text-color-dark: #FAFAF8;
-    font-size: 250%;
+    font-size: 200%;
     
 }
 
@@ -24,7 +24,15 @@
     text-align: center;
     color: var(--text-color);
 }
-
+.text-3xs{
+    font-size: 0.5rem;
+}
+.text-2xs{
+    font-size: 0.625rem;
+}
+.text-xs {
+    font-size: 0.75rem;
+}
 .text-sm {
     font-size: 0.875rem;
 }
@@ -72,7 +80,7 @@
 .btn {
     background: var(--primary-color);
     color: var(--text-color);
-    padding: 0.6rem 1rem;
+    padding: 0.2rem 0.8rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-soft);
     transition: 0.2s ease;
@@ -96,9 +104,6 @@
 .mt-1 {
     margin-top: 0.25rem;
 }
-
-
-
 
 
 .flex {
@@ -168,8 +173,8 @@
     display: grid;
 }
 
-.grid-cols-7{
-    grid-template-columns: repeat(7, minmax(1fr));
+.grid-cols-7 {
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .gap-2{
