@@ -59,7 +59,7 @@ const Calendar = ({ events = [] }) => {
             </div>
             <div className="grid grid-cols-7 gap-2 mb-2">
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => (
-                    <div key={d} className="font-wg-bold border rouded p-2 h-20 bg-blue-200">{d}</div>
+                    <div key={d} className="font-wg-bold border rouded p-2 h-20 bg-primary">{d}</div>
                 ))}
             </div>
             {weeks.map((week, wIdx) => (
@@ -77,7 +77,7 @@ const Calendar = ({ events = [] }) => {
                                     );
                                 })
                                 .map(e => (
-                                    <div key={e.id} className="text-xs bg-blue-200 rounded mt-1 p-1">
+                                    <div key={e.id} className="text-xs bg-primary rounded mt-1 p-1">
                                         {e.title}
                                     </div>
                                 ))}

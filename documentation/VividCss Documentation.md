@@ -142,8 +142,8 @@ Uses [Inter](https://fonts.google.com/specimen/Inter) font and a minimal color p
 
 | Class         | Description                       |
 |---------------|-----------------------------------|
-| `.bg-blue-200`| Background: primary color         |
-| `.text-white` | Text: main text color             |
+| `.bg-primary`| Background: primary color         |
+| `.text-primary` | Text: primary text color             |
 
 ---
 
